@@ -27,3 +27,23 @@ blockchain = [
 # Anthony's KelloggCoin balance is 2650
 
 # 👇👇👇 Your code HERE 👇👇👇
+ben_balance = 0
+brian_balance = 0
+evan_balance = 0
+anthony_balance = 0
+
+blockchain.each do |tx|
+  ben_balance += tx["amount"] if tx["to_user"]=="ben"
+  ben_balance -= tx["amount"] if tx["from_user"]=="ben"
+  brian_balance += tx["amount"] if tx["to_user"]=="brian"
+  brian_balance -= tx["amount"] if tx["from_user"]=="brian"
+  evan_balance += tx["amount"] if tx["to_user"]=="evan"
+  evan_balance -= tx["amount"] if tx["from_user"]=="evan"
+  anthony_balance += tx["amount"] if tx["to_user"]=="anthony"
+  anthony_balance -= tx["amount"] if tx["from_user"]=="anthony"
+end
+
+puts "Ben's KelloggCoin balance is #{ben_balance}"
+puts "Brian's KelloggCoin balance is #{brian_balance}"
+puts "Evan's KelloggCoin balance is #{evan_balance}"
+puts "Anthony's KelloggCoin balance is #{anthony_balance}"
